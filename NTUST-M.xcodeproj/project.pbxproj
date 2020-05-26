@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,9 +14,15 @@
 		7B249FE624629F1C00891D1F /* NTUST_M.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B249FE424629F1C00891D1F /* NTUST_M.xcdatamodeld */; };
 		7B249FE824629F1E00891D1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B249FE724629F1E00891D1F /* Assets.xcassets */; };
 		7B249FEB24629F1E00891D1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B249FE924629F1E00891D1F /* LaunchScreen.storyboard */; };
+		7B50EAD3247520DE00C4CC22 /* moodleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B50EAD2247520DE00C4CC22 /* moodleAPI.swift */; };
+		7B50EAD62475238500C4CC22 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B50EAD52475238500C4CC22 /* User.swift */; };
+		7B50EAD82476694900C4CC22 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B50EAD72476694900C4CC22 /* Course.swift */; };
+		7B870420246C3CB10084F67C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B87041F246C3CB10084F67C /* GoogleService-Info.plist */; };
+		FA640A9C721F81BFEB621927 /* Pods_NTUST_M.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5378407888554054F07D312D /* Pods_NTUST_M.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5378407888554054F07D312D /* Pods_NTUST_M.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NTUST_M.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B249FD824629F1C00891D1F /* NTUST-M.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTUST-M.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B249FDB24629F1C00891D1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B249FDD24629F1C00891D1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +32,12 @@
 		7B249FE724629F1E00891D1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B249FEA24629F1E00891D1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B249FEC24629F1E00891D1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B50EAD2247520DE00C4CC22 /* moodleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moodleAPI.swift; sourceTree = "<group>"; };
+		7B50EAD52475238500C4CC22 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7B50EAD72476694900C4CC22 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		7B87041F246C3CB10084F67C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D0099C3207728332BDF56C01 /* Pods-NTUST-M.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTUST-M.release.xcconfig"; path = "Target Support Files/Pods-NTUST-M/Pods-NTUST-M.release.xcconfig"; sourceTree = "<group>"; };
+		EF8F6F78C27E7AFA90BA4A1D /* Pods-NTUST-M.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTUST-M.debug.xcconfig"; path = "Target Support Files/Pods-NTUST-M/Pods-NTUST-M.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA640A9C721F81BFEB621927 /* Pods_NTUST_M.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +57,8 @@
 			children = (
 				7B249FDA24629F1C00891D1F /* NTUST-M */,
 				7B249FD924629F1C00891D1F /* Products */,
+				9A10873973C98C8354333A5E /* Pods */,
+				B209B08DC3A7649A750664D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +73,7 @@
 		7B249FDA24629F1C00891D1F /* NTUST-M */ = {
 			isa = PBXGroup;
 			children = (
+				7B50EAD42475236A00C4CC22 /* DataModule */,
 				7B249FDB24629F1C00891D1F /* AppDelegate.swift */,
 				7B249FDD24629F1C00891D1F /* SceneDelegate.swift */,
 				7B249FDF24629F1C00891D1F /* ViewController.swift */,
@@ -66,8 +82,36 @@
 				7B249FE924629F1E00891D1F /* LaunchScreen.storyboard */,
 				7B249FEC24629F1E00891D1F /* Info.plist */,
 				7B249FE424629F1C00891D1F /* NTUST_M.xcdatamodeld */,
+				7B87041F246C3CB10084F67C /* GoogleService-Info.plist */,
+				7B50EAD2247520DE00C4CC22 /* moodleAPI.swift */,
 			);
 			path = "NTUST-M";
+			sourceTree = "<group>";
+		};
+		7B50EAD42475236A00C4CC22 /* DataModule */ = {
+			isa = PBXGroup;
+			children = (
+				7B50EAD52475238500C4CC22 /* User.swift */,
+				7B50EAD72476694900C4CC22 /* Course.swift */,
+			);
+			path = DataModule;
+			sourceTree = "<group>";
+		};
+		9A10873973C98C8354333A5E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EF8F6F78C27E7AFA90BA4A1D /* Pods-NTUST-M.debug.xcconfig */,
+				D0099C3207728332BDF56C01 /* Pods-NTUST-M.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B209B08DC3A7649A750664D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5378407888554054F07D312D /* Pods_NTUST_M.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +121,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B249FEF24629F1E00891D1F /* Build configuration list for PBXNativeTarget "NTUST-M" */;
 			buildPhases = (
+				38296F364A89B08A652A6465 /* [CP] Check Pods Manifest.lock */,
 				7B249FD424629F1C00891D1F /* Sources */,
 				7B249FD524629F1C00891D1F /* Frameworks */,
 				7B249FD624629F1C00891D1F /* Resources */,
+				4B1CBDB48ADCB7AA68DD5A9A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B249FEB24629F1E00891D1F /* LaunchScreen.storyboard in Resources */,
+				7B870420246C3CB10084F67C /* GoogleService-Info.plist in Resources */,
 				7B249FE824629F1E00891D1F /* Assets.xcassets in Resources */,
 				7B249FE324629F1C00891D1F /* Main.storyboard in Resources */,
 			);
@@ -136,15 +183,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		38296F364A89B08A652A6465 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NTUST-M-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B1CBDB48ADCB7AA68DD5A9A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NTUST-M/Pods-NTUST-M-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NTUST-M/Pods-NTUST-M-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NTUST-M/Pods-NTUST-M-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7B249FD424629F1C00891D1F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B50EAD82476694900C4CC22 /* Course.swift in Sources */,
+				7B50EAD3247520DE00C4CC22 /* moodleAPI.swift in Sources */,
 				7B249FE024629F1C00891D1F /* ViewController.swift in Sources */,
 				7B249FDC24629F1C00891D1F /* AppDelegate.swift in Sources */,
 				7B249FE624629F1C00891D1F /* NTUST_M.xcdatamodeld in Sources */,
 				7B249FDE24629F1C00891D1F /* SceneDelegate.swift in Sources */,
+				7B50EAD62475238500C4CC22 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +378,7 @@
 		};
 		7B249FF024629F1E00891D1F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF8F6F78C27E7AFA90BA4A1D /* Pods-NTUST-M.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +396,7 @@
 		};
 		7B249FF124629F1E00891D1F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0099C3207728332BDF56C01 /* Pods-NTUST-M.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
