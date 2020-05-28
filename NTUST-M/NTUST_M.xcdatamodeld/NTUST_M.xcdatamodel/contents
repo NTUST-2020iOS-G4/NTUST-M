@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G3020" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Course" representedClassName="Course" syncable="YES" codeGenerationType="class" coreSpotlightDisplayNameExpression="Course">
+        <attribute name="catagoryname" optional="YES" attributeType="String"/>
+        <attribute name="courseID" optional="YES" attributeType="String"/>
+        <attribute name="fullname" attributeType="String" defaultValueString=""/>
+        <attribute name="moodleID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="semester" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="shortname" attributeType="String" defaultValueString=""/>
+        <relationship name="enrolledUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="courses" inverseEntity="User"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class" coreSpotlightDisplayNameExpression="User">
+        <attribute name="fullname" attributeType="String" defaultValueString=""/>
+        <attribute name="userID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="userPictureMiniURL" optional="YES" attributeType="URI"/>
+        <attribute name="userPictureURL" optional="YES" attributeType="URI"/>
+        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Course" inverseName="enrolledUsers" inverseEntity="Course"/>
+    </entity>
+    <elements>
+        <element name="Course" positionX="215.96875" positionY="45.98828125" width="128" height="148"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="118"/>
+    </elements>
 </model>

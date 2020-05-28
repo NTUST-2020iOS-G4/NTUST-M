@@ -15,9 +15,10 @@
 		7B249FE824629F1E00891D1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B249FE724629F1E00891D1F /* Assets.xcassets */; };
 		7B249FEB24629F1E00891D1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B249FE924629F1E00891D1F /* LaunchScreen.storyboard */; };
 		7B50EAD3247520DE00C4CC22 /* moodleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B50EAD2247520DE00C4CC22 /* moodleAPI.swift */; };
-		7B50EAD62475238500C4CC22 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B50EAD52475238500C4CC22 /* User.swift */; };
-		7B50EAD82476694900C4CC22 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B50EAD72476694900C4CC22 /* Course.swift */; };
 		7B870420246C3CB10084F67C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B87041F246C3CB10084F67C /* GoogleService-Info.plist */; };
+		7BA2EA7A247D8D9600B90190 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2EA79247D8D9600B90190 /* TestViewController.swift */; };
+		7BA2EA7C247D950700B90190 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2EA7B247D950700B90190 /* UserViewController.swift */; };
+		7BFAF19B247EF131007A1A07 /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFAF19A247EF131007A1A07 /* CoreDataConnect.swift */; };
 		FA640A9C721F81BFEB621927 /* Pods_NTUST_M.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5378407888554054F07D312D /* Pods_NTUST_M.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,9 +34,10 @@
 		7B249FEA24629F1E00891D1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B249FEC24629F1E00891D1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B50EAD2247520DE00C4CC22 /* moodleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moodleAPI.swift; sourceTree = "<group>"; };
-		7B50EAD52475238500C4CC22 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		7B50EAD72476694900C4CC22 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		7B87041F246C3CB10084F67C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7BA2EA79247D8D9600B90190 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		7BA2EA7B247D950700B90190 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		7BFAF19A247EF131007A1A07 /* CoreDataConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConnect.swift; sourceTree = "<group>"; };
 		D0099C3207728332BDF56C01 /* Pods-NTUST-M.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTUST-M.release.xcconfig"; path = "Target Support Files/Pods-NTUST-M/Pods-NTUST-M.release.xcconfig"; sourceTree = "<group>"; };
 		EF8F6F78C27E7AFA90BA4A1D /* Pods-NTUST-M.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTUST-M.debug.xcconfig"; path = "Target Support Files/Pods-NTUST-M/Pods-NTUST-M.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,7 +75,6 @@
 		7B249FDA24629F1C00891D1F /* NTUST-M */ = {
 			isa = PBXGroup;
 			children = (
-				7B50EAD42475236A00C4CC22 /* DataModule */,
 				7B249FDB24629F1C00891D1F /* AppDelegate.swift */,
 				7B249FDD24629F1C00891D1F /* SceneDelegate.swift */,
 				7B249FDF24629F1C00891D1F /* ViewController.swift */,
@@ -84,17 +85,11 @@
 				7B249FE424629F1C00891D1F /* NTUST_M.xcdatamodeld */,
 				7B87041F246C3CB10084F67C /* GoogleService-Info.plist */,
 				7B50EAD2247520DE00C4CC22 /* moodleAPI.swift */,
+				7BA2EA79247D8D9600B90190 /* TestViewController.swift */,
+				7BA2EA7B247D950700B90190 /* UserViewController.swift */,
+				7BFAF19A247EF131007A1A07 /* CoreDataConnect.swift */,
 			);
 			path = "NTUST-M";
-			sourceTree = "<group>";
-		};
-		7B50EAD42475236A00C4CC22 /* DataModule */ = {
-			isa = PBXGroup;
-			children = (
-				7B50EAD52475238500C4CC22 /* User.swift */,
-				7B50EAD72476694900C4CC22 /* Course.swift */,
-			);
-			path = DataModule;
 			sourceTree = "<group>";
 		};
 		9A10873973C98C8354333A5E /* Pods */ = {
@@ -230,13 +225,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B50EAD82476694900C4CC22 /* Course.swift in Sources */,
+				7BA2EA7C247D950700B90190 /* UserViewController.swift in Sources */,
 				7B50EAD3247520DE00C4CC22 /* moodleAPI.swift in Sources */,
+				7BA2EA7A247D8D9600B90190 /* TestViewController.swift in Sources */,
 				7B249FE024629F1C00891D1F /* ViewController.swift in Sources */,
 				7B249FDC24629F1C00891D1F /* AppDelegate.swift in Sources */,
 				7B249FE624629F1C00891D1F /* NTUST_M.xcdatamodeld in Sources */,
 				7B249FDE24629F1C00891D1F /* SceneDelegate.swift in Sources */,
-				7B50EAD62475238500C4CC22 /* User.swift in Sources */,
+				7BFAF19B247EF131007A1A07 /* CoreDataConnect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
