@@ -12,7 +12,7 @@ target 'NTUST-M' do
 
   pod 'Alamofire', '~> 5.1'
   pod 'SwiftyJSON', '~> 4.0'
-
+  pod 'FSCalendar'
   pod 'KeychainSwift', '~> 19.0'
 
 end

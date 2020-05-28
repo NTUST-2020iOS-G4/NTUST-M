@@ -11,13 +11,17 @@
 		7B249FDE24629F1C00891D1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B249FDD24629F1C00891D1F /* SceneDelegate.swift */; };
 		7B249FE024629F1C00891D1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B249FDF24629F1C00891D1F /* ViewController.swift */; };
 		7B249FE324629F1C00891D1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B249FE124629F1C00891D1F /* Main.storyboard */; };
-		7B249FE624629F1C00891D1F /* NTUST_M.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B249FE424629F1C00891D1F /* NTUST_M.xcdatamodeld */; };
 		7B249FE824629F1E00891D1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B249FE724629F1E00891D1F /* Assets.xcassets */; };
 		7B249FEB24629F1E00891D1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B249FE924629F1E00891D1F /* LaunchScreen.storyboard */; };
 		7B50EAD3247520DE00C4CC22 /* moodleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B50EAD2247520DE00C4CC22 /* moodleAPI.swift */; };
 		7B870420246C3CB10084F67C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B87041F246C3CB10084F67C /* GoogleService-Info.plist */; };
-		7BA2EA7A247D8D9600B90190 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2EA79247D8D9600B90190 /* TestViewController.swift */; };
-		7BA2EA7C247D950700B90190 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2EA7B247D950700B90190 /* UserViewController.swift */; };
+		7B91AF4C247FD39900DF95ED /* ntust-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B91AF44247FD39900DF95ED /* ntust-logo.png */; };
+		7B91AF4D247FD39900DF95ED /* testEvent.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B91AF45247FD39900DF95ED /* testEvent.json */; };
+		7B91AF4E247FD39900DF95ED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B91AF46247FD39900DF95ED /* LoginViewController.swift */; };
+		7B91AF4F247FD39900DF95ED /* TimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B91AF47247FD39900DF95ED /* TimetableViewController.swift */; };
+		7B91AF50247FD39900DF95ED /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B91AF48247FD39900DF95ED /* CalendarViewController.swift */; };
+		7B91AF51247FD39900DF95ED /* NTUST_M.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B91AF49247FD39900DF95ED /* NTUST_M.xcdatamodeld */; };
+		7B91AF52247FD39900DF95ED /* EmptyroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B91AF4B247FD39900DF95ED /* EmptyroomViewController.swift */; };
 		7BFAF19B247EF131007A1A07 /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFAF19A247EF131007A1A07 /* CoreDataConnect.swift */; };
 		FA640A9C721F81BFEB621927 /* Pods_NTUST_M.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5378407888554054F07D312D /* Pods_NTUST_M.framework */; };
 /* End PBXBuildFile section */
@@ -29,14 +33,18 @@
 		7B249FDD24629F1C00891D1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7B249FDF24629F1C00891D1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7B249FE224629F1C00891D1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7B249FE524629F1C00891D1F /* NTUST_M.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NTUST_M.xcdatamodel; sourceTree = "<group>"; };
 		7B249FE724629F1E00891D1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B249FEA24629F1E00891D1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B249FEC24629F1E00891D1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B50EAD2247520DE00C4CC22 /* moodleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moodleAPI.swift; sourceTree = "<group>"; };
 		7B87041F246C3CB10084F67C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7BA2EA79247D8D9600B90190 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		7BA2EA7B247D950700B90190 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		7B91AF44247FD39900DF95ED /* ntust-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ntust-logo.png"; sourceTree = "<group>"; };
+		7B91AF45247FD39900DF95ED /* testEvent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testEvent.json; sourceTree = "<group>"; };
+		7B91AF46247FD39900DF95ED /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7B91AF47247FD39900DF95ED /* TimetableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableViewController.swift; sourceTree = "<group>"; };
+		7B91AF48247FD39900DF95ED /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		7B91AF4A247FD39900DF95ED /* NTUST_M.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NTUST_M.xcdatamodel; sourceTree = "<group>"; };
+		7B91AF4B247FD39900DF95ED /* EmptyroomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyroomViewController.swift; sourceTree = "<group>"; };
 		7BFAF19A247EF131007A1A07 /* CoreDataConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConnect.swift; sourceTree = "<group>"; };
 		D0099C3207728332BDF56C01 /* Pods-NTUST-M.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTUST-M.release.xcconfig"; path = "Target Support Files/Pods-NTUST-M/Pods-NTUST-M.release.xcconfig"; sourceTree = "<group>"; };
 		EF8F6F78C27E7AFA90BA4A1D /* Pods-NTUST-M.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTUST-M.debug.xcconfig"; path = "Target Support Files/Pods-NTUST-M/Pods-NTUST-M.debug.xcconfig"; sourceTree = "<group>"; };
@@ -75,6 +83,13 @@
 		7B249FDA24629F1C00891D1F /* NTUST-M */ = {
 			isa = PBXGroup;
 			children = (
+				7B91AF48247FD39900DF95ED /* CalendarViewController.swift */,
+				7B91AF4B247FD39900DF95ED /* EmptyroomViewController.swift */,
+				7B91AF46247FD39900DF95ED /* LoginViewController.swift */,
+				7B91AF49247FD39900DF95ED /* NTUST_M.xcdatamodeld */,
+				7B91AF44247FD39900DF95ED /* ntust-logo.png */,
+				7B91AF45247FD39900DF95ED /* testEvent.json */,
+				7B91AF47247FD39900DF95ED /* TimetableViewController.swift */,
 				7B249FDB24629F1C00891D1F /* AppDelegate.swift */,
 				7B249FDD24629F1C00891D1F /* SceneDelegate.swift */,
 				7B249FDF24629F1C00891D1F /* ViewController.swift */,
@@ -82,11 +97,8 @@
 				7B249FE724629F1E00891D1F /* Assets.xcassets */,
 				7B249FE924629F1E00891D1F /* LaunchScreen.storyboard */,
 				7B249FEC24629F1E00891D1F /* Info.plist */,
-				7B249FE424629F1C00891D1F /* NTUST_M.xcdatamodeld */,
 				7B87041F246C3CB10084F67C /* GoogleService-Info.plist */,
 				7B50EAD2247520DE00C4CC22 /* moodleAPI.swift */,
-				7BA2EA79247D8D9600B90190 /* TestViewController.swift */,
-				7BA2EA7B247D950700B90190 /* UserViewController.swift */,
 				7BFAF19A247EF131007A1A07 /* CoreDataConnect.swift */,
 			);
 			path = "NTUST-M";
@@ -169,7 +181,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B91AF4C247FD39900DF95ED /* ntust-logo.png in Resources */,
 				7B249FEB24629F1E00891D1F /* LaunchScreen.storyboard in Resources */,
+				7B91AF4D247FD39900DF95ED /* testEvent.json in Resources */,
 				7B870420246C3CB10084F67C /* GoogleService-Info.plist in Resources */,
 				7B249FE824629F1E00891D1F /* Assets.xcassets in Resources */,
 				7B249FE324629F1C00891D1F /* Main.storyboard in Resources */,
@@ -225,12 +239,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BA2EA7C247D950700B90190 /* UserViewController.swift in Sources */,
+				7B91AF4E247FD39900DF95ED /* LoginViewController.swift in Sources */,
+				7B91AF4F247FD39900DF95ED /* TimetableViewController.swift in Sources */,
+				7B91AF50247FD39900DF95ED /* CalendarViewController.swift in Sources */,
 				7B50EAD3247520DE00C4CC22 /* moodleAPI.swift in Sources */,
-				7BA2EA7A247D8D9600B90190 /* TestViewController.swift in Sources */,
+				7B91AF51247FD39900DF95ED /* NTUST_M.xcdatamodeld in Sources */,
 				7B249FE024629F1C00891D1F /* ViewController.swift in Sources */,
+				7B91AF52247FD39900DF95ED /* EmptyroomViewController.swift in Sources */,
 				7B249FDC24629F1C00891D1F /* AppDelegate.swift in Sources */,
-				7B249FE624629F1C00891D1F /* NTUST_M.xcdatamodeld in Sources */,
 				7B249FDE24629F1C00891D1F /* SceneDelegate.swift in Sources */,
 				7BFAF19B247EF131007A1A07 /* CoreDataConnect.swift in Sources */,
 			);
@@ -432,12 +448,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7B249FE424629F1C00891D1F /* NTUST_M.xcdatamodeld */ = {
+		7B91AF49247FD39900DF95ED /* NTUST_M.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7B249FE524629F1C00891D1F /* NTUST_M.xcdatamodel */,
+				7B91AF4A247FD39900DF95ED /* NTUST_M.xcdatamodel */,
 			);
-			currentVersion = 7B249FE524629F1C00891D1F /* NTUST_M.xcdatamodel */;
+			currentVersion = 7B91AF4A247FD39900DF95ED /* NTUST_M.xcdatamodel */;
 			path = NTUST_M.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
