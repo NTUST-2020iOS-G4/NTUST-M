@@ -9,19 +9,24 @@
 /* Begin PBXBuildFile section */
 		7B249FDC24629F1C00891D1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B249FDB24629F1C00891D1F /* AppDelegate.swift */; };
 		7B249FDE24629F1C00891D1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B249FDD24629F1C00891D1F /* SceneDelegate.swift */; };
-		7B249FE024629F1C00891D1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B249FDF24629F1C00891D1F /* ViewController.swift */; };
 		7B249FE324629F1C00891D1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B249FE124629F1C00891D1F /* Main.storyboard */; };
 		7B249FE824629F1E00891D1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B249FE724629F1E00891D1F /* Assets.xcassets */; };
 		7B249FEB24629F1E00891D1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B249FE924629F1E00891D1F /* LaunchScreen.storyboard */; };
+		7B2C3A1A249B173300145D61 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C3A19249B173300145D61 /* LoadingView.swift */; };
+		7B421CFB24A196A800FFDEA7 /* TimeTableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B421CFA24A196A800FFDEA7 /* TimeTableLayout.swift */; };
+		7B421CFD24A19B6700FFDEA7 /* TimeTableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B421CFC24A19B6700FFDEA7 /* TimeTableEvent.swift */; };
+		7B421CFF24A1B6C600FFDEA7 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B421CFE24A1B6C600FFDEA7 /* CourseDetailViewController.swift */; };
+		7B421D0524A1E6F400FFDEA7 /* TimeTableEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B421D0424A1E6F400FFDEA7 /* TimeTableEventCell.swift */; };
 		7B50EAD3247520DE00C4CC22 /* moodleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B50EAD2247520DE00C4CC22 /* moodleAPI.swift */; };
+		7B62268224A2AB1000AD40AB /* CalendarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B62268124A2AB1000AD40AB /* CalendarAPI.swift */; };
 		7B870420246C3CB10084F67C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B87041F246C3CB10084F67C /* GoogleService-Info.plist */; };
-		7B91AF4C247FD39900DF95ED /* ntust-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B91AF44247FD39900DF95ED /* ntust-logo.png */; };
-		7B91AF4D247FD39900DF95ED /* testEvent.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B91AF45247FD39900DF95ED /* testEvent.json */; };
 		7B91AF4E247FD39900DF95ED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B91AF46247FD39900DF95ED /* LoginViewController.swift */; };
-		7B91AF4F247FD39900DF95ED /* TimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B91AF47247FD39900DF95ED /* TimetableViewController.swift */; };
 		7B91AF50247FD39900DF95ED /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B91AF48247FD39900DF95ED /* CalendarViewController.swift */; };
 		7B91AF51247FD39900DF95ED /* NTUST_M.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B91AF49247FD39900DF95ED /* NTUST_M.xcdatamodeld */; };
 		7B91AF52247FD39900DF95ED /* EmptyroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B91AF4B247FD39900DF95ED /* EmptyroomViewController.swift */; };
+		7B91AF5424802DF400DF95ED /* EmptyroomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B91AF5324802DF400DF95ED /* EmptyroomDetailViewController.swift */; };
+		7B91AF5624810F6300DF95ED /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B91AF5524810F6300DF95ED /* SettingViewController.swift */; };
+		7BD802C1249B49EA00CC6C0A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD802C0249B49EA00CC6C0A /* TimeTableViewController.swift */; };
 		7BFAF19B247EF131007A1A07 /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFAF19A247EF131007A1A07 /* CoreDataConnect.swift */; };
 		FA640A9C721F81BFEB621927 /* Pods_NTUST_M.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5378407888554054F07D312D /* Pods_NTUST_M.framework */; };
 /* End PBXBuildFile section */
@@ -31,20 +36,25 @@
 		7B249FD824629F1C00891D1F /* NTUST-M.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTUST-M.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B249FDB24629F1C00891D1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B249FDD24629F1C00891D1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7B249FDF24629F1C00891D1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7B249FE224629F1C00891D1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B249FE724629F1E00891D1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B249FEA24629F1E00891D1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B249FEC24629F1E00891D1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B2C3A19249B173300145D61 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		7B421CFA24A196A800FFDEA7 /* TimeTableLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableLayout.swift; sourceTree = "<group>"; };
+		7B421CFC24A19B6700FFDEA7 /* TimeTableEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableEvent.swift; sourceTree = "<group>"; };
+		7B421CFE24A1B6C600FFDEA7 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
+		7B421D0424A1E6F400FFDEA7 /* TimeTableEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableEventCell.swift; sourceTree = "<group>"; };
 		7B50EAD2247520DE00C4CC22 /* moodleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moodleAPI.swift; sourceTree = "<group>"; };
+		7B62268124A2AB1000AD40AB /* CalendarAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAPI.swift; sourceTree = "<group>"; };
 		7B87041F246C3CB10084F67C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7B91AF44247FD39900DF95ED /* ntust-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ntust-logo.png"; sourceTree = "<group>"; };
-		7B91AF45247FD39900DF95ED /* testEvent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testEvent.json; sourceTree = "<group>"; };
 		7B91AF46247FD39900DF95ED /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		7B91AF47247FD39900DF95ED /* TimetableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableViewController.swift; sourceTree = "<group>"; };
 		7B91AF48247FD39900DF95ED /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		7B91AF4A247FD39900DF95ED /* NTUST_M.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NTUST_M.xcdatamodel; sourceTree = "<group>"; };
 		7B91AF4B247FD39900DF95ED /* EmptyroomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyroomViewController.swift; sourceTree = "<group>"; };
+		7B91AF5324802DF400DF95ED /* EmptyroomDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyroomDetailViewController.swift; sourceTree = "<group>"; };
+		7B91AF5524810F6300DF95ED /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		7BD802C0249B49EA00CC6C0A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		7BFAF19A247EF131007A1A07 /* CoreDataConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConnect.swift; sourceTree = "<group>"; };
 		D0099C3207728332BDF56C01 /* Pods-NTUST-M.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTUST-M.release.xcconfig"; path = "Target Support Files/Pods-NTUST-M/Pods-NTUST-M.release.xcconfig"; sourceTree = "<group>"; };
 		EF8F6F78C27E7AFA90BA4A1D /* Pods-NTUST-M.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTUST-M.debug.xcconfig"; path = "Target Support Files/Pods-NTUST-M/Pods-NTUST-M.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,23 +93,28 @@
 		7B249FDA24629F1C00891D1F /* NTUST-M */ = {
 			isa = PBXGroup;
 			children = (
-				7B91AF48247FD39900DF95ED /* CalendarViewController.swift */,
-				7B91AF4B247FD39900DF95ED /* EmptyroomViewController.swift */,
-				7B91AF46247FD39900DF95ED /* LoginViewController.swift */,
-				7B91AF49247FD39900DF95ED /* NTUST_M.xcdatamodeld */,
-				7B91AF44247FD39900DF95ED /* ntust-logo.png */,
-				7B91AF45247FD39900DF95ED /* testEvent.json */,
-				7B91AF47247FD39900DF95ED /* TimetableViewController.swift */,
 				7B249FDB24629F1C00891D1F /* AppDelegate.swift */,
 				7B249FDD24629F1C00891D1F /* SceneDelegate.swift */,
-				7B249FDF24629F1C00891D1F /* ViewController.swift */,
-				7B249FE124629F1C00891D1F /* Main.storyboard */,
 				7B249FE724629F1E00891D1F /* Assets.xcassets */,
+				7B249FE124629F1C00891D1F /* Main.storyboard */,
 				7B249FE924629F1E00891D1F /* LaunchScreen.storyboard */,
 				7B249FEC24629F1E00891D1F /* Info.plist */,
 				7B87041F246C3CB10084F67C /* GoogleService-Info.plist */,
 				7B50EAD2247520DE00C4CC22 /* moodleAPI.swift */,
+				7B62268124A2AB1000AD40AB /* CalendarAPI.swift */,
 				7BFAF19A247EF131007A1A07 /* CoreDataConnect.swift */,
+				7B2C3A19249B173300145D61 /* LoadingView.swift */,
+				7B91AF49247FD39900DF95ED /* NTUST_M.xcdatamodeld */,
+				7B91AF46247FD39900DF95ED /* LoginViewController.swift */,
+				7BD802C0249B49EA00CC6C0A /* TimeTableViewController.swift */,
+				7B421CFA24A196A800FFDEA7 /* TimeTableLayout.swift */,
+				7B421CFC24A19B6700FFDEA7 /* TimeTableEvent.swift */,
+				7B421D0424A1E6F400FFDEA7 /* TimeTableEventCell.swift */,
+				7B421CFE24A1B6C600FFDEA7 /* CourseDetailViewController.swift */,
+				7B91AF48247FD39900DF95ED /* CalendarViewController.swift */,
+				7B91AF4B247FD39900DF95ED /* EmptyroomViewController.swift */,
+				7B91AF5324802DF400DF95ED /* EmptyroomDetailViewController.swift */,
+				7B91AF5524810F6300DF95ED /* SettingViewController.swift */,
 			);
 			path = "NTUST-M";
 			sourceTree = "<group>";
@@ -181,9 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B91AF4C247FD39900DF95ED /* ntust-logo.png in Resources */,
 				7B249FEB24629F1E00891D1F /* LaunchScreen.storyboard in Resources */,
-				7B91AF4D247FD39900DF95ED /* testEvent.json in Resources */,
 				7B870420246C3CB10084F67C /* GoogleService-Info.plist in Resources */,
 				7B249FE824629F1E00891D1F /* Assets.xcassets in Resources */,
 				7B249FE324629F1C00891D1F /* Main.storyboard in Resources */,
@@ -239,15 +252,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B91AF5624810F6300DF95ED /* SettingViewController.swift in Sources */,
+				7B421CFF24A1B6C600FFDEA7 /* CourseDetailViewController.swift in Sources */,
+				7B91AF5424802DF400DF95ED /* EmptyroomDetailViewController.swift in Sources */,
 				7B91AF4E247FD39900DF95ED /* LoginViewController.swift in Sources */,
-				7B91AF4F247FD39900DF95ED /* TimetableViewController.swift in Sources */,
 				7B91AF50247FD39900DF95ED /* CalendarViewController.swift in Sources */,
 				7B50EAD3247520DE00C4CC22 /* moodleAPI.swift in Sources */,
 				7B91AF51247FD39900DF95ED /* NTUST_M.xcdatamodeld in Sources */,
-				7B249FE024629F1C00891D1F /* ViewController.swift in Sources */,
+				7B421D0524A1E6F400FFDEA7 /* TimeTableEventCell.swift in Sources */,
+				7B62268224A2AB1000AD40AB /* CalendarAPI.swift in Sources */,
+				7B421CFB24A196A800FFDEA7 /* TimeTableLayout.swift in Sources */,
+				7B421CFD24A19B6700FFDEA7 /* TimeTableEvent.swift in Sources */,
 				7B91AF52247FD39900DF95ED /* EmptyroomViewController.swift in Sources */,
 				7B249FDC24629F1C00891D1F /* AppDelegate.swift in Sources */,
 				7B249FDE24629F1C00891D1F /* SceneDelegate.swift in Sources */,
+				7B2C3A1A249B173300145D61 /* LoadingView.swift in Sources */,
+				7BD802C1249B49EA00CC6C0A /* TimeTableViewController.swift in Sources */,
 				7BFAF19B247EF131007A1A07 /* CoreDataConnect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,7 +414,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 83DE5YR79T;
 				INFOPLIST_FILE = "NTUST-M/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -402,7 +424,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.ntust-2020ios-g4.NTUST-M";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -411,16 +433,20 @@
 			baseConfigurationReference = D0099C3207728332BDF56C01 /* Pods-NTUST-M.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 83DE5YR79T;
 				INFOPLIST_FILE = "NTUST-M/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.ntust-2020ios-g4.NTUST-M";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

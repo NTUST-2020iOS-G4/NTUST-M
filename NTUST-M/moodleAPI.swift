@@ -11,7 +11,8 @@ import CoreData
 import Alamofire
 import SwiftyJSON
 import KeychainSwift
-
+import Firebase
+import FirebaseFirestore
 
 class moodleAPI: NSObject {
     
@@ -37,9 +38,15 @@ class moodleAPI: NSObject {
         case email = "email"
     }
     
+    // MARK: CoreData Context
+    let myContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    // MARK: Firebase Cloud FireStore
+    var db: Firestore!
+    
     // MARK: setUserToken
     // this token is used for access moodle web service
-    func setUserToken(parameters: Parameters?, completion: @escaping (_: Bool) -> ()) {
+    func setUserToken(parameters: Parameters?, completion: @escaping (_: Bool, _ error: String?) -> ()) {
         AF.request(moodleURL + moodleTokenURL, method: .post, parameters: parameters).responseJSON { response in
             switch response.result {
             case .success(let data):
@@ -49,6 +56,10 @@ class moodleAPI: NSObject {
                     
                     let keychain = KeychainSwift()
                     keychain.synchronizable = true
+                    
+                    if keychain.set(self.userToken!, forKey: "moodleToken") {
+                        print("Keychain: moodleToken set success")
+                    }
                     
                     if let username = parameters!["username"] as? String {
                         if keychain.set(username, forKey: "username") {
@@ -64,17 +75,43 @@ class moodleAPI: NSObject {
                     }
                     
                     print("User token request success")
-                    completion(true)
+                    completion(true, nil)
                 } else if json["error"].exists() {
                     print("User token request failed: \(json["error"])")
-                    completion(false)
+                    completion(false, json["error"].string)
                 } else {
                     print("Unknow error")
-                    completion(false)
+                    completion(false, "Unknow error")
                 }
             case .failure(let error):
                 print("User token Request failed with error: \(error)")
-                completion(false)
+                completion(false, error.errorDescription)
+            }
+        }
+    }
+    
+    // MARK: getSelfMoodleID
+    // get own user moodleID
+    // TODO: Error Handling
+    func getSelfMoodleID(completion: @escaping (_: Int?) -> ()) {
+
+        let para: Parameters = [
+            "wstoken": self.userToken!,
+            "wsfunction": moodleAPI.APIFunction.getSiteInfo.rawValue,
+            "moodlewsrestformat": "json",
+        ]
+        
+        AF.request(moodleURL + moodleWebServiceURL, method: .get, parameters: para).responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                let json = JSON(data)
+                let userID = json["userid"].intValue
+                print("get user MoodleID success: \(userID)")
+                completion(userID)
+    
+            case .failure(let error):
+                print("get user MoodleID failed with error: \(error)")
+                completion(nil)
             }
         }
     }
@@ -96,32 +133,36 @@ class moodleAPI: NSObject {
             switch response.result {
             case .success(let data):
                 let json = JSON(data)
-                let myEntityName = "User"
-                let myContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-                let tempUser = NSEntityDescription.insertNewObject(forEntityName: myEntityName, into: myContext) as! User
+                
+                let coreDataConnect = CoreDataConnect(context: self.myContext)
+                let userPredicate = NSPredicate(format: "userID = \(json[0]["id"].intValue)")
+                
+                var tempUser: User!
+                
+                if let foundUser = coreDataConnect.find("User", predicate: userPredicate) as? User {
+                    // use exist user
+                    tempUser = foundUser
+                } else {
+                    // insert new user
+                    tempUser = User(context: self.myContext)
+                }
+                
+                // update user data
                 tempUser.userID = Int64(json[0]["id"].intValue)
                 tempUser.fullname = json[0]["fullname"].stringValue
                 tempUser.userPictureURL = json[0]["profileimageurl"].url!
                 tempUser.userPictureMiniURL = json[0]["profileimageurlsmall"].url!
-                print("get userInfo success: \(value)")
-                completion(tempUser)
-//                if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-////                    let user = User(context: appDelegate.persistentContainer.viewContext)
-////                    user.userID = Int64(json[0]["id"].intValue)
-////                    user.fullname = json[0]["fullname"].stringValue
-////                    user.userPictureURL = json[0]["profileimageurl"].url!
-////                    user.userPictureMiniURL = json[0]["profileimageurlsmall"].url!
-////                    appDelegate.saveContext()
-//
-//                    var test:User?
-//                    test!.userID = Int64(json[0]["id"].intValue)
-//                    test!.fullname = json[0]["fullname"].stringValue
-//                    test!.userPictureURL = json[0]["profileimageurl"].url!
-//                    test!.userPictureMiniURL = json[0]["profileimageurlsmall"].url!
-//
-//
-//                }
                 
+                // save context
+                do {
+                    try self.myContext.save()
+                } catch {
+                    fatalError("\(error)")
+                }
+                
+                print("get userInfo success: \(value)")
+                
+                completion(tempUser)
     
             case .failure(let error):
                 print("get userInfo \(value) failed with error: \(error)")
@@ -191,26 +232,103 @@ class moodleAPI: NSObject {
     
     // MARK: getUserCommonCourses
     // get common courses with user
-    func getUserCommonCourses(userid: Int, completion: @escaping (_: [User]?) -> ()) {
+    func loadUserCommonCourses(user: User, completion:  ((_: Bool, _ error: String?) -> Void)? = nil) {
         let para: Parameters = [
             "wstoken": self.userToken!,
             "wsfunction": moodleAPI.APIFunction.getUserCommonCourses.rawValue,
             "moodlewsrestformat": "json",
-            "userid": userid,
+            "userid": user.userID,
         ]
         AF.request(moodleURL + moodleWebServiceURL, method: .get, parameters: para).responseJSON { response in
             switch response.result {
             case .success(let data):
+                let coreDataConnect = CoreDataConnect(context: self.myContext)
+                
+                // Append new data
                 let json = JSON(data)
                 if let courses = json.array {
+                    // initial firebase
+                    self.db = Firestore.firestore()
+                    
+                    var courseCount = 0
                     for course in courses {
-                        print(course["fullname"].stringValue)
+                        // insert new course
+                        let idnumber = course["idnumber"].stringValue
+                        let idnumberIndex = idnumber.index(idnumber.startIndex, offsetBy: 4)
+                        let semester = Int64(idnumber[..<idnumberIndex])!
+                        let code = String(idnumber[idnumberIndex...])
+                        
+                        self.db.collection("\(semester)_Course").document(code).getDocument { (document, error) in
+                            if let document = document, document.exists {
+                                let coursePredicate = NSPredicate(format: "code = '\(code)' && semester = \(semester)")
+                                
+                                var tempCourse: Course!
+                                
+                                if let foundCourse = coreDataConnect.find("Course", predicate: coursePredicate) as? Course {
+                                    // use exist course ignore update data
+                                    tempCourse = foundCourse
+                                    print("\(course["fullname"].stringValue): already exist")
+                                } else {
+                                    // insert new course
+                                    tempCourse = Course(context: self.myContext)
+                                    tempCourse.moodleID = Int64(course["id"].intValue)
+                                    tempCourse.semester = semester
+                                    tempCourse.code = code
+                                    
+                                    let courseData = document.data()
+                                    tempCourse.title = courseData?["Title"] as? String
+                                    tempCourse.credits = courseData?["Credits"] as! Int64
+                                    tempCourse.instructor = courseData?["Instructor"] as? String
+                                    tempCourse.registered = courseData?["Registered"] as! Int64
+                                    
+                                    for (classroom, times) in courseData!["LocationTime"] as! [String : [String]] {
+                                        let classroomPredicate = NSPredicate(format: "classroom = '\(classroom)'")
+                                        var tempClassroom: Location!
+                                        if let foundClassroom = coreDataConnect.find("Location", predicate: classroomPredicate) as? Location {
+                                            // use exist classroom ignore new data
+                                            tempClassroom = foundClassroom
+                                        } else {
+                                            // insert new classroom
+                                            tempClassroom = Location(context: self.myContext)
+                                            tempClassroom.classroom = classroom
+                                        }
+                                        
+                                        for time in times {
+                                            let timeIndex = time.index(time.startIndex, offsetBy: 1)
+                                            let tempPeriod = Period(context: self.myContext)
+                                            tempPeriod.day = String(time[..<timeIndex])
+                                            tempPeriod.period = String(time[timeIndex...])
+                                            tempPeriod.classroom = tempClassroom
+                                            tempCourse.addToTime(tempPeriod)
+                                        }
+                                    }
+                                    print("\(course["fullname"].stringValue): success added")
+                                }
+                                tempCourse.addToEnrolledUsers(user)
+                                
+                            } else {
+                                print("\(course["fullname"].stringValue): not exist")
+                            }
+                            courseCount += 1
+                            if (courseCount >= courses.count) {
+                                // save context
+                                do {
+                                    try self.myContext.save()
+                                } catch {
+                                    fatalError("\(error)")
+                                }
+                                if completion != nil {
+                                    completion!(true, nil)
+                                }
+                            }
+                        }
                     }
+                    
                 }
-                completion(nil)
             case .failure(let error):
-//                print("get userInfo \(value) failed with error: \(error)")
-                completion(nil)
+                if completion != nil {
+                    completion!(false, error.errorDescription)
+                }
             }
         }
     }

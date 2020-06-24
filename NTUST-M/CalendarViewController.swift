@@ -8,45 +8,40 @@
 
 import UIKit
 import FSCalendar
+import Firebase
+import FirebaseFirestore
+import CoreData
 
 class CalendarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FSCalendarDataSource, FSCalendarDelegate {
    
-    var datesEventCount: [String:Int] = [:]
-    var events = ["測試事件1", "測試事件2"]
-    var eventsdata: [String:(Int, [String])] = [:]
-    
+    var events: [String] = []
     
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var eventTableView: UITableView!
     
-    let jsonURL = Bundle.main.url(forResource: "testEvent", withExtension: "json")
-    
+    let myContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        loadEventJson()
-        eventsdata["2020-05-16"] = (2, ["123","456"])
-    }
-    
-    func loadEventJson() {
-        if let data = try? Data(contentsOf: jsonURL!) {
-            if let jsonObj = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
-                for p in jsonObj as! [[String: AnyObject]] {
-                    //datesWithEvent.append("\(String(describing: p["date"]))")
-                    datesEventCount[String(describing: p["date"]!)] = p["count"] as? Int
-                    eventsdata[String(describing: p["date"]!)] = (p["count"] as? Int, ["events1","events2"]) as? (Int, [String])
-                }
-            }
+        if let date = self.calendar.selectedDate {
+            self.reloadEventList(date: date)
+        } else {
+            self.reloadEventList(date: self.calendar.today!)
         }
     }
-      
-
+    
+    // MARK: - Bar item action
+    
+    @IBAction func clickRefreshBtn(_ sender: UIBarButtonItem) {
+        self.reloadEventList(date: self.calendar.today!)
+        self.calendar.select(self.calendar.today!, scrollToDate: true)
+        self.calendar.deselect(self.calendar.today!)
+    }
     
     // MARK: - Event TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return events.count
     }
     
@@ -54,6 +49,10 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = events[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - Event Calendar
@@ -67,29 +66,40 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
 
     // 點擊該日期的觸發事件
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        events.append("\(self.dateFormatter.string(from:date))")
-        let count = self.events.count == 0 ? 0 : self.events.count - 1
-        eventTableView.insertRows(at: [[0,count]], with: UITableView.RowAnimation.fade)
+        reloadEventList(date: date)
     }
     
     // 回傳該日期有幾個事件
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        let dateString = self.dateFormatter.string(from: date)
-        if let eventcount = self.datesEventCount[dateString] {
-            return eventcount
+
+        let coreDataConnect = CoreDataConnect(context: myContext)
+        let datePredicate = NSPredicate(format: "date = %@", date as CVarArg)
+        let selectResult = coreDataConnect.retrieve("CDDate", predicate: datePredicate, sort: nil, limit: nil)
+        
+        var eventcount = 0
+        if let results = selectResult {
+            for result in results {
+                let cddate = result as! CDDate
+                eventcount += cddate.events!.count
+            }
         }
-        return 0
+        return eventcount
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func reloadEventList(date: Date) {
+        let coreDataConnect = CoreDataConnect(context: myContext)
+        let datePredicate = NSPredicate(format: "date = %@", date as CVarArg)
+        let selectResult = coreDataConnect.retrieve("CDDate", predicate: datePredicate, sort: nil, limit: nil)
+        events.removeAll()
+        if let results = selectResult {
+            for result in results {
+                let cddate = result as! CDDate
+                for event in cddate.events! {
+                    let cdevent = event as! CDEvent
+                    events.append(cdevent.name!)
+                }
+            }
+        }
+        self.eventTableView.reloadData()
     }
-    */
-
 }
